@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/services/api.service';
+import { FileUploaderComponent } from '../file-uploader/file-uploader.component';
 import { ProductDetailComponent } from '../product-detail/product-detail.component';
 
 @Component({
@@ -36,6 +37,14 @@ export class ProductComponent implements OnInit {
   getBooks()
   {
     this.loading=true;
+    this.api.get('bookswithauth').subscribe(result=>{
+      this.books=result;
+      this.loading=false;
+    },error=>{
+      this.loading=false;
+    })
+    /*
+    this.loading=true;
     this.api.get('books').subscribe(result=>{
       this.books=result;
       this.loading=false;
@@ -43,6 +52,7 @@ export class ProductComponent implements OnInit {
       this.loading=false;
       alert('ada masalah saat pengambilan data... Coba lagi deh!!!');
     })
+    */
   }
 
 
@@ -77,5 +87,15 @@ export class ProductComponent implements OnInit {
             alert('Tidak dapat menghapus data');
           });
         }
+      }
+      Uploadfile(data: any)
+      {
+        let dialog= this.dialog.open(FileUploaderComponent  , {
+          width: '500px',
+          data: data,
+      });
+        dialog.afterClosed().subscribe(result=> {
+        return;
+        })      
       }
     }

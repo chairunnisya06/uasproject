@@ -11,6 +11,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MaterialDesign } from './material/material.module';
 import { ForgotComponent } from './nisyaa/forgot/forgot.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     MatCardModule,
     MaterialDesign,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
