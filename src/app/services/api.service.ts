@@ -9,21 +9,23 @@ export class ApiService {
   constructor(
     public http:HttpClient
   ) { }
-  httpOptions:any;
-  getToken()
-  {
-    var tokenKey=localStorage.getItem('appToken');
-    if(tokenKey!=null)
-    {
-      var tkn=JSON.parse(tokenKey);
-      this.httpOptions={
-        headers:new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer '+tkn.token
-        })
-      }
-    }
-  }
+
+httpOptions:any;
+ getToken()
+ {
+   var tokenKey=localStorage.getItem('appToken');
+   if(tokenKey!=null)
+   {
+     var tkn=JSON.parse(tokenKey);
+     this.httpOptions={
+       headers:new HttpHeaders({
+         'Content-Type': 'application/json',
+         'Authorization': 'Bearer '+tkn.token
+       })
+     }
+   }
+ }
+
   get(url: any)
  {
    this.getToken();
@@ -47,6 +49,7 @@ delete(url: any)
   this.getToken();
   return this.http.delete(this.serverUrl+url,this.httpOptions);
  }
+ 
 
  //register
  register(email: any,password: any)
@@ -58,9 +61,15 @@ delete(url: any)
  {
    return this.http.post(this.serverUrl+'auth/login',{email:email,password:password});
  }
- //upload file
-upload(file: any)
-{
-   return this.http.post(this.serverUrl+'upload/book',file);
-}
+
+ upload(file:any)
+  {
+    return this.http.post(this.serverUrl+'upload/book',file);
+  }
+
+  updateProduct(file:any)
+  {
+    return this.http.post(this.serverUrl+'updateProduct/book',file);
+  }
+
 }
