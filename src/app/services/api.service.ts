@@ -50,8 +50,6 @@ delete(url: any)
   return this.http.delete(this.serverUrl+url,this.httpOptions);
  }
  
-
- //register
  register(email: any,password: any)
  {
    return this.http.post(this.serverUrl+'auth/register',{email:email,password:password});
@@ -66,10 +64,5 @@ delete(url: any)
   {
     return this.http.post(this.serverUrl+'upload/book',file);
   }
-
-  updateProduct(file:any)
-  {
-    return this.http.post(this.serverUrl+'updateProduct/book',file);
-  }
-
+  
 }

@@ -43,9 +43,7 @@ if(event.target.files.length>0){
 {
 if(data.status==true)
 {
-  //lakukan update data produk disini
   this.updateBook(data);
-  //
   alert('File berhasil diunggah');
   this.loadingUpload=false;
   this.dialogRef.close();

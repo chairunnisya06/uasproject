@@ -11,7 +11,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$candy-app-primary: mat-palette($mat-purple,700);
+$candy-app-primary: mat-palette($mat-blue,200);
 $candy-app-accent:  mat-palette($mat-red,500);
 
 // The warn palette is optional (defaults to red).
@@ -26,7 +26,17 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 @include angular-material-theme($candy-app-theme);
 
 //memakai uikit untuk memanfaatkan flex, grid, widht, dan height.
-@import './uikit.css';
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
+
+@import './uikit.css';
+
+
+html, body { height: 50%;    background-image: url('https://img.wallpapersafari.com/desktop/1680/1050/82/3/Aq8Bf0.jpg');}
+body{ margin: 0; 
+    padding: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;}
+   
+.spacer{
+    flex-grow: 1;
+}
